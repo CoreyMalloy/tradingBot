@@ -4,16 +4,16 @@ from lumibot.strategies.strategy import Strategy
 from lumibot.traders import Trader
 from datetime import datetime
 
-API_KEY = "AKI9454DSDB6V5MQAS7W"
-API_SECRET = "QtdU7TcEpih2jST6SQ6zxWhQ0JKxacGxFSGRXZLg"
-BASE_URL = "https://api.alpaca.markets"
+API_KEY = "PKFUMQIUP2KFEBUS96MY"
+API_SECRET = "IrJ1is8wfG3kNirfvj7YYTR5Gm6NG6KAsFLODTxs"
+BASE_URL = "https://paper-api.alpaca.markets/v2"
 
 ALPACA_CREDS = {
     "API_KEY":API_KEY,
     "API_SECRET": API_SECRET,
     "PAPER": True
 }
-\
+
 class MLTrader(Strategy):
     def initialize(self, symbol:str="SPY"):
         self.symbol = symbol
@@ -32,8 +32,8 @@ class MLTrader(Strategy):
             self.submit_order(order)
             self.last_trade = "buy"
 
-start_date = datetime(2023,12,15)
-end_date = datetime(2023,12,31)
+start_date = datetime(2024,6,17)
+end_date = datetime(2024,6,30)
 
 broker = Alpaca(ALPACA_CREDS)
 strategy = MLTrader(name='mlstrat', broker = broker, parameters={"symbol":"SPY"})
