@@ -84,9 +84,18 @@ end_date = datetime(2023,12,31)
 
 broker = Alpaca(ALPACA_CREDS)
 strategy = MLTrader(name='mlstrat', broker = broker, parameters={"symbol":"SPY", "cash_at_risk":.5})
-strategy.backtest(
-    YahooDataBacktesting,
-    start_date,
-    end_date,
-    parameters={"symbol":"SPY", "cash_at_risk":.5}
-)
+
+#this is for the testing
+
+# strategy.backtest(
+#     YahooDataBacktesting,
+#     start_date,
+#     end_date,
+#     parameters={"symbol":"SPY", "cash_at_risk":.5}
+# )
+
+#this is for live investing
+
+trader = Trader()
+trader.add_strategy(strategy)
+trader.run_all()
