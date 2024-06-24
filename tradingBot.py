@@ -7,8 +7,8 @@ from datetime import timedelta
 from alpaca_trade_api import REST
 from finbert_utils import estimate_sentiment
 
-API_KEY = "PKFUMQIUP2KFEBUS96MY"
-API_SECRET = "IrJ1is8wfG3kNirfvj7YYTR5Gm6NG6KAsFLODTxs"
+API_KEY = "PKH5NDYTRG47NIT2AOOO"
+API_SECRET = "0Df76hZIy4et3NNLgDlqH5ZOP9mnKGACctk5FY26"
 BASE_URL = "https://paper-api.alpaca.markets/v2"
 
 ALPACA_CREDS = {
@@ -79,13 +79,14 @@ class MLTrader(Strategy):
                 self.submit_order(order)
                 self.last_trade = "sell"
 
-start_date = datetime(2020,1,1)
-end_date = datetime(2023,12,31)
+
 
 broker = Alpaca(ALPACA_CREDS)
 strategy = MLTrader(name='mlstrat', broker = broker, parameters={"symbol":"SPY", "cash_at_risk":.5})
 
 #this is for the testing
+#start_date = datetime(2020,1,1)
+#end_date = datetime(2023,12,31)
 
 # strategy.backtest(
 #     YahooDataBacktesting,
